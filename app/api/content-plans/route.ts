@@ -1,3 +1,4 @@
+// app/api/content-plans/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { getSupabaseServerClient } from "@/lib/supabase";
 
@@ -9,7 +10,6 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ ok: false, error: "Missing businessId" }, { status: 400 });
   }
 
-  // latest plan for business
   const { data: plan, error: planErr } = await supabase
     .from("content_plans")
     .select("*")
