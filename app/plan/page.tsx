@@ -63,7 +63,7 @@ export default function PlanPage() {
     if (!bizId) { setErr("Pick a business first"); return; }
     try {
       setGenLoading(true); setErr(null); setMsg(null);
-      const body = JSON.stringify({ demoBusinessName: "", city: "" , businessId: bizId });
+      const body = JSON.stringify({ businessId: bizId });
       // our POST accepts demo params; we’ll add businessId support now:
       const res = await fetch("/api/analysis-runs", {
         method: "POST",
